@@ -1,18 +1,28 @@
 import java.util.Scanner;
 
-public class SecondTask {
+public class ThirdTry {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите 1 число (арабское или римское)");
-        String firstInput = scanner.nextLine();
+        System.out.println("Введите выражение (например, I + II или 1 + 2):");
+        String input = scanner.nextLine();
+
+
+        String[] parts = input.trim().split(" ");
+        if (parts.length != 3) {
+            System.out.println("Ошибка: Введите выражение в формате 'операнд1 оператор операнд2'");
+            return;
+        }
+
+        String firstInput = parts[0];
+        String arifm = parts[1];
+        String secondInput = parts[2];
+
         int first = convertToArabic(firstInput);
         if (first == -1 || first < 1 || first > 10) {
             System.out.println("Ошибка: Числа должны быть от 1 до 10 включительно и в одном формате");
             return;
         }
 
-        System.out.println("Введите 2 число (арабское или римское)");
-        String secondInput = scanner.nextLine();
         int second = convertToArabic(secondInput);
         if (second == -1 || second < 1 || second > 10) {
             System.out.println("Ошибка: Числа должны быть от 1 до 10 включительно и в одном формате");
@@ -24,8 +34,6 @@ public class SecondTask {
             return;
         }
 
-        System.out.println("Введите арифм. действие (+, -, *, /)");
-        String arifm = scanner.nextLine();
         int result = 0;
         switch (arifm) {
             case "+":
@@ -50,7 +58,7 @@ public class SecondTask {
                 return;
         }
 
-        // Вывод результата в нужном формате
+
         if (isRoman(firstInput)) {
             System.out.println("Результат: " + arabicToRoman(result));
         } else {
@@ -78,7 +86,7 @@ public class SecondTask {
             case "VIII": return 8;
             case "IX": return 9;
             case "X": return 10;
-            default: return -1; // Неправильный римский символ
+            default: return -1;
         }
     }
 
@@ -101,7 +109,7 @@ public class SecondTask {
             case 8: return "VIII";
             case 9: return "IX";
             case 10: return "X";
-            default: return ""; // Не должно быть
+            default: return "";
         }
     }
 }
