@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ThirdTry {
+public class SecondTask {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите выражение (например, I + II или 1 + 2):");
